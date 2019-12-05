@@ -1,14 +1,20 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import faker from 'faker';
 import AddComment from './AddComment'
-import postcomment from './PostComment';
-import { link } from 'fs';
+import PostComment from './PostComment';
 
 class BlogPost extends React.Component {
+    state = { nam: '', comm: '' }
+
     createNewComment = (name, comment) => {
-        let newComment = document.createElement('PostComment');
-        let blog = document.querySelector('#main');
-        blog.appendChild(newComment);
+        this.setState({ comm: comment, nam: name })
+
+    }
+    postComment = () => {
+        if (this.state.nam && this.state.comm) {
+            return <PostComment name={this.state.nam} comment={this.state.comm} />
+        }
     }
     render() {
         return (
@@ -17,6 +23,8 @@ class BlogPost extends React.Component {
                 <h2>Busola sues fstoyinbo</h2>
                 <p>{faker.lorem.paragraphs()}</p>
                 <AddComment onFormSubmit={this.createNewComment} />
+
+                {this.postComment()}
             </div>
 
         )

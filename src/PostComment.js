@@ -4,17 +4,17 @@ import faker from 'faker';
 class PostComment extends React.Component {
     render() {
         return (
-            <div class="ui comments">
-                <div class="comment">
-                    <a class="avatar">
+            <div className="ui comments">
+                <div className="comment">
+                    <a className="avatar">
                         <img src={faker.image.avatar()}></img>
                     </a>
-                    <div class="content">
-                        <a class="author">{this.props.name}</a>
-                        <div class="metadata">
-                            <div class="date">Just Now</div>
+                    <div className="content">
+                        <a className="author">{this.props.name}</a>
+                        <div className="metadata">
+                            <div className="date">Just Now</div>
                         </div>
-                        <div class="text">
+                        <div className="text">
                             {this.props.comment}
                         </div>
                         {/* <div class="actions">
